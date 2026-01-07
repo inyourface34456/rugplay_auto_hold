@@ -64,5 +64,6 @@ if __name__ == '__main__':
     while True:
         try:
             main_loop()
-        except:
+        except Exception as e:
+            print(F"[ERROR] {e}")
             continue
