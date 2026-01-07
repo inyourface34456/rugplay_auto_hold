@@ -48,18 +48,21 @@ def get_sell_amt():
 
     return 5000000-current
 
-if __name__ == '__main__':
+def main_loop():
     while True:
         amt = get_sell_amt()
-        try:
-            if amt == 0:
-                continue
-            elif amt < 0:
-                sell_coin(amt.__abs__())
-            else:
-                buy_coin(amt.__abs__())
-        except Exception as e:
-            print(f"[ERROR] {e}")
+        if amt == 0:
             continue
+        elif amt < 0:
+            sell_coin(amt.__abs__())
+        else:
+            buy_coin(amt.__abs__())
 
         print(f"off by {amt}")
+
+if __name__ == '__main__':
+    while True:
+        try:
+            main_loop()
+        except:
+            continue
